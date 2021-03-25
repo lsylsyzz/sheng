@@ -1,0 +1,84 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001052ff0 .scope module, "tb_kar" "tb_kar" 2 4;
+ .timescale -9 -9;
+P_0000000001073950 .param/l "PERIOD" 0 2 6, +C4<00000000000000000000000000001010>;
+v00000000010d4d50_0 .var "a", 0 0;
+v00000000010d4df0_0 .var "b", 0 0;
+v00000000010d4fd0_0 .var "c", 0 0;
+v00000000010d4f30_0 .var "d", 0 0;
+v00000000010d5070_0 .net "out", 0 0, L_00000000010d57b0;  1 drivers
+S_000000000086e2f0 .scope module, "u_kar" "kar" 2 18, 3 1 0, S_0000000001052ff0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+    .port_info 3 /INPUT 1 "d";
+    .port_info 4 /OUTPUT 1 "out";
+L_0000000001053290 .functor NOT 1, v00000000010d4df0_0, C4<0>, C4<0>, C4<0>;
+L_000000000086dd10 .functor NOT 1, v00000000010d4fd0_0, C4<0>, C4<0>, C4<0>;
+L_000000000086dd80 .functor AND 1, L_0000000001053290, L_000000000086dd10, C4<1>, C4<1>;
+L_000000000086e480 .functor NOT 1, v00000000010d4d50_0, C4<0>, C4<0>, C4<0>;
+L_000000000086e4f0 .functor NOT 1, v00000000010d4f30_0, C4<0>, C4<0>, C4<0>;
+L_000000000086e560 .functor AND 1, L_000000000086e480, L_000000000086e4f0, C4<1>, C4<1>;
+L_000000000086e5d0 .functor OR 1, L_000000000086dd80, L_000000000086e560, C4<0>, C4<0>;
+L_000000000086e640 .functor AND 1, v00000000010d4fd0_0, v00000000010d4f30_0, C4<1>, C4<1>;
+L_00000000010d5890 .functor AND 1, L_000000000086e640, v00000000010d4d50_0, C4<1>, C4<1>;
+L_00000000010d5510 .functor OR 1, L_000000000086e5d0, L_00000000010d5890, C4<0>, C4<0>;
+L_00000000010d5580 .functor AND 1, v00000000010d4fd0_0, v00000000010d4f30_0, C4<1>, C4<1>;
+L_00000000010d5660 .functor AND 1, L_00000000010d5580, v00000000010d4df0_0, C4<1>, C4<1>;
+L_00000000010d57b0 .functor OR 1, L_00000000010d5510, L_00000000010d5660, C4<0>, C4<0>;
+v000000000086def0_0 .net *"_s0", 0 0, L_0000000001053290;  1 drivers
+v00000000010d5250_0 .net *"_s10", 0 0, L_000000000086e560;  1 drivers
+v00000000010d4ad0_0 .net *"_s12", 0 0, L_000000000086e5d0;  1 drivers
+v00000000010d5390_0 .net *"_s14", 0 0, L_000000000086e640;  1 drivers
+v00000000010d4c10_0 .net *"_s16", 0 0, L_00000000010d5890;  1 drivers
+v00000000010d52f0_0 .net *"_s18", 0 0, L_00000000010d5510;  1 drivers
+v00000000010d4490_0 .net *"_s2", 0 0, L_000000000086dd10;  1 drivers
+v00000000010d4b70_0 .net *"_s20", 0 0, L_00000000010d5580;  1 drivers
+v00000000010d4cb0_0 .net *"_s22", 0 0, L_00000000010d5660;  1 drivers
+v00000000010d48f0_0 .net *"_s4", 0 0, L_000000000086dd80;  1 drivers
+v00000000010d4710_0 .net *"_s6", 0 0, L_000000000086e480;  1 drivers
+v00000000010d45d0_0 .net *"_s8", 0 0, L_000000000086e4f0;  1 drivers
+v00000000010d4a30_0 .net "a", 0 0, v00000000010d4d50_0;  1 drivers
+v00000000010d47b0_0 .net "b", 0 0, v00000000010d4df0_0;  1 drivers
+v00000000010d4530_0 .net "c", 0 0, v00000000010d4fd0_0;  1 drivers
+v00000000010d4850_0 .net "d", 0 0, v00000000010d4f30_0;  1 drivers
+v00000000010d4e90_0 .net "out", 0 0, L_00000000010d57b0;  alias, 1 drivers
+    .scope S_0000000001052ff0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000010d4d50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000010d4df0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000010d4fd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000010d4f30_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0000000001052ff0;
+T_1 ;
+    %delay 1000, 0;
+    %vpi_call 2 32 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0000000001052ff0;
+T_2 ;
+    %vpi_call 2 37 "$dumpfile", "kar.vcd" {0 0 0};
+    %vpi_call 2 38 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_kar.v";
+    "./kar.v ";

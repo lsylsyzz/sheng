@@ -4,7 +4,7 @@ module top_module (
     input [7:0] d,
     output [7:0] q
 );
-    
+    reg q;
     always @(posedge clk or posedge areset) begin
         if(areset) begin
             q <= 0;
@@ -15,3 +15,5 @@ module top_module (
     end
 
 endmodule
+
+
