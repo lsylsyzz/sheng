@@ -1,0 +1,41 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001052560 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "cout";
+    .port_info 4 /OUTPUT 1 "sum";
+o0000000001073dc8 .functor BUFZ 1, C4<z>; HiZ drive
+o0000000001073df8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000000000103ce60 .functor XOR 1, o0000000001073dc8, o0000000001073df8, C4<0>, C4<0>;
+o0000000001073e28 .functor BUFZ 1, C4<z>; HiZ drive
+L_000000000103ddd0 .functor XOR 1, L_000000000103ce60, o0000000001073e28, C4<0>, C4<0>;
+L_000000000103de40 .functor AND 1, o0000000001073dc8, o0000000001073df8, C4<1>, C4<1>;
+L_000000000103deb0 .functor AND 1, o0000000001073dc8, o0000000001073e28, C4<1>, C4<1>;
+L_000000000103df20 .functor OR 1, L_000000000103de40, L_000000000103deb0, C4<0>, C4<0>;
+L_00000000010ccdf0 .functor AND 1, o0000000001073df8, o0000000001073e28, C4<1>, C4<1>;
+L_00000000010cce60 .functor OR 1, L_000000000103df20, L_00000000010ccdf0, C4<0>, C4<0>;
+v000000000103cdc0_0 .net *"_s0", 0 0, L_000000000103ce60;  1 drivers
+v00000000010526f0_0 .net *"_s10", 0 0, L_00000000010ccdf0;  1 drivers
+v0000000001052790_0 .net *"_s4", 0 0, L_000000000103de40;  1 drivers
+v0000000001052830_0 .net *"_s6", 0 0, L_000000000103deb0;  1 drivers
+v00000000010528d0_0 .net *"_s8", 0 0, L_000000000103df20;  1 drivers
+v000000000103dc00_0 .net "a", 0 0, o0000000001073dc8;  0 drivers
+v000000000103dca0_0 .net "b", 0 0, o0000000001073df8;  0 drivers
+v00000000010cc3d0_0 .net "cin", 0 0, o0000000001073e28;  0 drivers
+v00000000010cc650_0 .net "cout", 0 0, L_00000000010cce60;  1 drivers
+v00000000010cc470_0 .net "sum", 0 0, L_000000000103ddd0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "067_Fadd.v";

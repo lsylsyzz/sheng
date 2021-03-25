@@ -1,0 +1,28 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001012670 .scope module, "add3" "add3" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "a";
+    .port_info 1 /INPUT 3 "b";
+    .port_info 2 /OUTPUT 3 "c";
+    .port_info 3 /INPUT 1 "cout";
+o0000000001033cd8 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0000000001012800_0 .net "a", 2 0, o0000000001033cd8;  0 drivers
+o0000000001033d08 .functor BUFZ 3, C4<zzz>; HiZ drive
+v00000000010128a0_0 .net "b", 2 0, o0000000001033d08;  0 drivers
+o0000000001033d38 .functor BUFZ 3, C4<zzz>; HiZ drive
+v00000000001fec80_0 .net "c", 2 0, o0000000001033d38;  0 drivers
+o0000000001033d68 .functor BUFZ 1, C4<z>; HiZ drive
+v00000000001fed20_0 .net "cout", 0 0, o0000000001033d68;  0 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "add3.v";

@@ -1,0 +1,58 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000000f5e7f0 .scope module, "tb_add3" "tb_add3" 2 4;
+ .timescale -9 -9;
+P_00000000010142b0 .param/l "PERIOD" 0 2 6, +C4<00000000000000000000000000001010>;
+v0000000001010e50_0 .var "a", 2 0;
+v0000000001010ef0_0 .var "b", 2 0;
+o0000000001016ff8 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0000000001010f90_0 .net "c", 2 0, o0000000001016ff8;  0 drivers
+v0000000001011030_0 .var "cout", 0 0;
+S_0000000000f5e980 .scope module, "u_add3" "add3" 2 17, 3 1 0, S_0000000000f5e7f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "a";
+    .port_info 1 /INPUT 3 "b";
+    .port_info 2 /OUTPUT 3 "c";
+    .port_info 3 /INPUT 1 "cout";
+v0000000000f5eb10_0 .net "a", 2 0, v0000000001010e50_0;  1 drivers
+v0000000000f5dee0_0 .net "b", 2 0, v0000000001010ef0_0;  1 drivers
+v0000000001010d10_0 .net "c", 2 0, o0000000001016ff8;  alias, 0 drivers
+v0000000001010db0_0 .net "cout", 0 0, v0000000001011030_0;  1 drivers
+    .scope S_0000000000f5e7f0;
+T_0 ;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0000000001010e50_0, 0, 3;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0000000001010ef0_0, 0, 3;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001011030_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0000000000f5e7f0;
+T_1 ;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 3;
+    %store/vec4 v0000000001010e50_0, 0, 3;
+    %delay 1000, 0;
+    %vpi_call 2 30 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0000000000f5e7f0;
+T_2 ;
+    %vpi_call 2 35 "$dumpfile", "add3.vcd" {0 0 0};
+    %vpi_call 2 36 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_add3.v";
+    "./add3.v ";

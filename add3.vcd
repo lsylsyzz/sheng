@@ -1,0 +1,36 @@
+$date
+	Tue Mar 23 21:55:27 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module tb_add3 $end
+$var wire 3 ! c [2:0] $end
+$var reg 3 " a [2:0] $end
+$var reg 3 # b [2:0] $end
+$var reg 1 $ cout $end
+$scope module u_add3 $end
+$var wire 3 % a [2:0] $end
+$var wire 3 & b [2:0] $end
+$var wire 3 ' c [2:0] $end
+$var wire 1 $ cout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bz '
+b0 &
+b0 %
+0$
+b0 #
+b0 "
+bz !
+$end
+#10
+b1 "
+b1 %
+#1010

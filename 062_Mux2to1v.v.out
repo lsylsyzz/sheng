@@ -1,0 +1,28 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001122560 .scope module, "top_module" "top_module" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 100 "a";
+    .port_info 1 /INPUT 100 "b";
+    .port_info 2 /INPUT 1 "sel";
+    .port_info 3 /OUTPUT 100 "out";
+o0000000001143cd8 .functor BUFZ 100, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v00000000011226f0_0 .net "a", 99 0, o0000000001143cd8;  0 drivers
+o0000000001143d08 .functor BUFZ 100, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v000000000110de90_0 .net "b", 99 0, o0000000001143d08;  0 drivers
+v000000000110df30_0 .net "out", 99 0, L_0000000001122830;  1 drivers
+o0000000001143d68 .functor BUFZ 1, C4<z>; HiZ drive
+v0000000001122790_0 .net "sel", 0 0, o0000000001143d68;  0 drivers
+L_0000000001122830 .functor MUXZ 100, o0000000001143cd8, o0000000001143d08, o0000000001143d68, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "062_Mux2to1v.v";
